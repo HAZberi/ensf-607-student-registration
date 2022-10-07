@@ -26,8 +26,17 @@ public class CourseCat {
 
     @Override
     public String toString() {
-        return "CourseCat{" +
-                "courseList=" + courseList +
-                '}';
+
+        String str = "Course Catalog" + "\n" + "-".repeat(80) + "\n";
+
+        int i = 1;
+
+        for(Course c: this.courseList){
+            str = str + i + ": " + c.toString();
+            i++;
+        }
+
+        str += "-".repeat(80);
+        return str;
     }
 }
