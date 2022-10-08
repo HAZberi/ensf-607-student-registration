@@ -26,7 +26,9 @@ public class CourseCat {
     @Override
     public String toString() {
 
-        String str = "Course Catalog" + "\n" + "-".repeat(80) + "\n";
+        String str = "\n" + "-".repeat(90) + "\n";
+
+        str = str + " ".repeat(38) + "Course Catalog" + "\n" + "-".repeat(90) + "\n";
 
         int i = 1;
 
@@ -35,7 +37,7 @@ public class CourseCat {
             i++;
         }
 
-        str += "-".repeat(80);
+        str += "-".repeat(90);
         return str;
     }
 }

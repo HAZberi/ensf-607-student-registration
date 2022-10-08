@@ -7,9 +7,7 @@ public class Main {
 
         App app = new App();
 
-        app.printCatalog();
-
-        app.searchCatalog();
+        app.init();
 
       //  ArrayList<Course> tempCourses = cat.getCourseList();
 

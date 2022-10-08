@@ -22,6 +22,10 @@ public class Offering {
         return section;
     }
 
+    public Course getCourse() {
+        return theCourse;
+    }
+
     public void setSection(int section) {
         this.section = section;
     }
@@ -37,9 +41,6 @@ public class Offering {
 
     @Override
     public String toString() {
-        return "\n" + "-".repeat(30) + "\n" +
-                "Course = " + theCourse + "\n" +
-                "Section = " + section + "\n" +
-                "-".repeat(30) + "\n";
+        return "Section = " + section;
     }
 }
