@@ -14,7 +14,6 @@ public class CourseCat {
     }
 
     public Course searchCat (String courseName, int courseId) {
-
         for (Course c: courseList) {
             if (c.getCourseName().equals(courseName) &&
                     c.getCourseId() == courseId) {

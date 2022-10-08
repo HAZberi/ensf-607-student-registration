@@ -37,9 +37,9 @@ public class Offering {
 
     @Override
     public String toString() {
-        return "Offering{" +
-                "course=" + theCourse + 
-                "section=" + section +
-                '}';
+        return "\n" + "-".repeat(30) + "\n" +
+                "Course = " + theCourse + "\n" +
+                "Section = " + section + "\n" +
+                "-".repeat(30) + "\n";
     }
 }

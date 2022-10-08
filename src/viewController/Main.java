@@ -9,6 +9,8 @@ public class Main {
 
         app.printCatalog();
 
+        app.searchCatalog();
+
       //  ArrayList<Course> tempCourses = cat.getCourseList();
 
       //  tempCourses.get(1).setCourseName("CHEM");
