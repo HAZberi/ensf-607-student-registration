@@ -63,9 +63,17 @@ public class Student {
         reg.register(this, theOffering);
     }
 
-    public void removeCourse(int i) {
-        // Find course in the courselist
-        this.courseList.get(i);
+    public void removeCourse(Course course) {
+        for(Registration myReg: this.courseList){
+            if(myReg.getOffering().getCourse().equals(course)){
+                myReg.getOffering().removeStudent(myReg);
+                this.courseList.remove(myReg);
+                System.out.println("Course Successfully Deleted.");
+                return;
+            }
+        }
+
+        System.out.println("No Registrations found for " + course.getCourseName() + "-" + course.getCourseId());
     }
 
     public void printCourseList() {

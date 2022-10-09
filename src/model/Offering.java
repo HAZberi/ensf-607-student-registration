@@ -12,6 +12,10 @@ public class Offering {
         studentList.add(r);
     }
 
+    public void removeStudent(Registration r) {
+        studentList.remove(r);
+    }
+
     public Offering(int section) {
 
         this.section = section;

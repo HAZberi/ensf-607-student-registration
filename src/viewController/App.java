@@ -45,26 +45,6 @@ public class App {
         System.out.print("-".repeat(40) + "\n");
     }
 
-    // private Offering getCourseOffering(Course c) {
-
-    //     ArrayList<Offering> temp = new ArrayList<Offering>();
-
-    //     for(Offering of: this.allOfferings){
-    //         if(of.getCourse().getCourseId() == c.getCourseId()){
-    //             temp.add(of);
-    //         }
-    //     }
-
-    //     for(Offering of: temp){
-    //         if(of.numberOfStudents() < 8){
-    //             return of;
-    //         }
-    //     }
-
-    //     return temp.get(0);
-
-    // }
-
     private Student getStudent() {
         while (true) {
             System.out.println("1. Select existing student.");
@@ -131,7 +111,7 @@ public class App {
 
     public void addCourse() {
         System.out.print("\n" + "-".repeat(40) + "\n");
-        System.out.print(" ".repeat(13) + "Add Courses" + "\n" + "-".repeat(40) + "\n");
+        System.out.print(" ".repeat(13) + "Add Course" + "\n" + "-".repeat(40) + "\n");
         
         Student s = getStudent();
         
@@ -142,8 +122,6 @@ public class App {
         System.out.print("-".repeat(40) + "\n");
         s.registerForCourse(this.catalog, c.getCourseName(), c.getCourseId(), of.getSection());
         System.out.print("-".repeat(40) + "\n");
-
-        s.printCourseList();
         
     }
 
@@ -177,6 +155,19 @@ public class App {
         }
     }
 
+    public void removeACourse(){
+        System.out.print("\n" + "-".repeat(40) + "\n");
+        System.out.print(" ".repeat(11) + " Remove Course" + "\n" + "-".repeat(40) + "\n");
+
+        Student s = getStudent();
+        Course c = getCourse();
+
+        System.out.print("-".repeat(40) + "\n");
+        s.removeCourse(c);
+        System.out.print("-".repeat(40) + "\n");
+
+    }
+
     public void viewAllCourses(){
         Student s = getStudent();
         
@@ -200,7 +191,7 @@ public class App {
                 this.addCourse();
                 break;
             case 3:
-                System.out.println("To be implemented.");
+                removeACourse();
                 break;
             case 4:
                 this.printCatalog();

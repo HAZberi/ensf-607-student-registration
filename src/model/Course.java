@@ -34,7 +34,6 @@ public class Course {
     }
 
     public void setPreReqs(ArrayList<Course> preReqs) {
-        // this.preReqs = preReqs;
         for (Course c : preReqs)
             this.preReqs.add(c);
     }
