@@ -179,14 +179,16 @@ public class App {
 
     public void viewAllCourses(){
         Student s = getStudent();
-
-        System.out.println(s);
+        
+        s.printCourseList();
     }
 
     public void endEnrollment(){
+        System.out.println("-".repeat(25) + "Enrollment Status" + "-".repeat(25));
         for (Course c: this.catalog.getCourseList()) {
             c.validateOffering();
         }
+        System.out.println("-".repeat(67));
     }
 
     public void menuSwitchBoard() {

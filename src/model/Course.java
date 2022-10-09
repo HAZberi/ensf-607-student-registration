@@ -43,56 +43,59 @@ public class Course {
         return offeringList.get(i - 1);
     }
 
-    public ArrayList<Offering> getOfferingList(){
+    public ArrayList<Offering> getOfferingList() {
         return this.offeringList;
     }
 
     public void setOfferingList(ArrayList<Offering> offeringList) {
         for (Offering offering : offeringList) {
-                offering.setTheCourse(this);
-                this.offeringList.add(offering);
+            offering.setTheCourse(this);
+            this.offeringList.add(offering);
         }
     }
 
-    public void validateOffering(){
-        try {
-            for (Offering offering : offeringList) {
+    public void validateOffering() {
+        for (Offering offering : offeringList) {
+            try {
                 offering.validate();
+                System.out.println(courseName + "-" + courseId + "-" + offering.getSection() + ": "
+                        + "Course Offering Intiation Successful");
+            } catch (MinStudentsException e) {
+                System.out.println(courseName + "-" + courseId + "-" + offering.getSection() + ": " + e.getMessage());
             }
-        } catch(MinStudentsException e){
-            System.out.println(e.getMessage());
         }
     }
 
     /**
-	 * 
-	 * equals check for equality with other Course object
-	 * @param
-	 * object of Course class
-	 * 
-	 * @return
-	 * true or false of type boolean
-	 */
-	@Override 
-	public boolean equals(Object course) {
-		
-		if(course == this) {
-			return true;
-		}
-		
-		if (!(course instanceof Course)) {
+     * 
+     * equals check for equality with other Course object
+     * 
+     * @param
+     * object        of Course class
+     * 
+     * @return
+     *         true or false of type boolean
+     */
+    @Override
+    public boolean equals(Object course) {
+
+        if (course == this) {
+            return true;
+        }
+
+        if (!(course instanceof Course)) {
             return false;
         }
-		
-		//type casting
-		Course compareCourse = (Course) course;
-		
-		return this.courseId == compareCourse.courseId && this.courseName == compareCourse.courseName;
-	}
+
+        // type casting
+        Course compareCourse = (Course) course;
+
+        return this.courseId == compareCourse.courseId && this.courseName == compareCourse.courseName;
+    }
 
     private String stringifyOfferingList() {
         String str = "[";
-        for(Offering of: offeringList){
+        for (Offering of : offeringList) {
             str = str + "Section=" + of.getSection() + ", ";
         }
         str = str + "]";
@@ -101,7 +104,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return  "Course Name = '" + courseName + '\'' +
+        return "Course Name = '" + courseName + '\'' +
                 ", Course ID = " + courseId +
                 ", Prerequisites = " + preReqs +
                 ", Offerring List = " + stringifyOfferingList() + "\n";
