@@ -19,16 +19,8 @@ public class DataLoader {
         Course c8 = new Course ("ENSF", 614);
 
 
-
-        //Will have to come back later here!!
-        // ArrayList<Offering> tempOfferingList = new ArrayList<Offering>();
-        // tempOfferingList.add(new Offering(1));
-        // tempOfferingList.add(new Offering(2));
-        // System.out.println(tempOfferingList.get(0));
-
         ArrayList <Course> tempCourseList = new ArrayList<>();
         tempCourseList.add(c1);
-        // tempCourseList.get(0).setOfferingList(tempOfferingList);
         tempCourseList.add(c2);
         tempCourseList.add(c3);
         tempCourseList.add(c4);
@@ -36,6 +28,21 @@ public class DataLoader {
         tempCourseList.add(c6);
         tempCourseList.add(c7);
         tempCourseList.add(c8);
+        for (Course c: tempCourseList){
+
+            ArrayList <Offering> tempOfferingList = new ArrayList<Offering>();
+
+            Offering of1 = new Offering(1);
+            Offering of2 = new Offering(2);
+
+            of1.setTheCourse(c);
+            of2.setTheCourse(c);
+
+            tempOfferingList.add(of1);
+            tempOfferingList.add(of2);
+
+            c.setOfferingList(tempOfferingList);
+        }
 
         return tempCourseList;
     }

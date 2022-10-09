@@ -34,13 +34,17 @@ public class Offering {
         this.theCourse = theCourse;
     }
 
-    public void validateOffering() throws MinStudentsException {
+    public int numberOfStudents(){
+        return this.studentList.size();
+    }
+
+    public void validate() throws MinStudentsException {
         if (this.studentList.size() < 8)
             throw new MinStudentsException();
     }
 
     @Override
     public String toString() {
-        return "Section = " + section;
+        return "Offering{Course=" + this.getCourse().getCourseName() + "-" + this.getCourse().getCourseId() + " | Section=" + section + " | Students=" + studentList;
     }
 }

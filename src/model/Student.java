@@ -15,11 +15,24 @@ public class Student {
         courseList = new ArrayList<>();
     }
 
-    public void addCourse(Registration r) throws MaxCoursesException {
-        if (courseList.size() > 6)
+    public void addCourse(Registration reg) throws MaxCoursesException, DuplicateCourseException {
+        if (courseList.size() + 1 > 6) {
             throw new MaxCoursesException();
+        }
 
-        courseList.add(r);
+        for (Registration r : this.courseList) {
+            if (r.getOffering().getCourse().getCourseId() == reg.getOffering().getCourse().getCourseId()) {
+                throw new DuplicateCourseException();
+            }
+        }
+
+        courseList.add(reg);
+        System.out.println("Successfully added the course.");
+
+    }
+
+    public ArrayList<Registration> getCourseList() {
+        return this.courseList;
     }
 
     public String getName() {
@@ -50,9 +63,22 @@ public class Student {
         reg.register(this, theOffering);
     }
 
-    public void removeCourse(int i){
-        //Find course in the courselist
+    public void removeCourse(int i) {
+        // Find course in the courselist
         this.courseList.get(i);
+    }
+
+    public void printCourseList() {
+        String str = "_".repeat(20) + "\n" + " ".repeat(4) + "Course List " + " ".repeat(4) + "\n" + "_".repeat(20)
+                + "\n";
+
+        for (Registration r : this.courseList) {
+            str = str + r.getCourseInfo() + "\n";
+        }
+
+        str = str + "_".repeat(20) + "\n";
+
+        System.out.println(str);
     }
 
     @Override

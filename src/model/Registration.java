@@ -11,9 +11,9 @@ public class Registration {
         try {
             this.theStudent = theStudent;
             this.theOffering = theOffering;
-            theOffering.addStudent(this);
-            theStudent.addCourse(this);
-        } catch (MaxCoursesException e) {
+            this.theStudent.addCourse(this);
+            this.theOffering.addStudent(this);
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
@@ -26,12 +26,20 @@ public class Registration {
         return theGrade;
     }
 
+    public String getCourseInfo(){
+        return theOffering.getCourse().getCourseName() + "-" + theOffering.getCourse().getCourseId() + "-" + theOffering.getSection();
+    }
+
+    public Offering getOffering(){
+        return this.theOffering;
+    }
+
     @Override
     public String toString() {
         return "Registration{" +
-                "theGrade=" + theGrade +
-                "theStudent=" + theStudent +
-                "theOffering=" + theOffering +
+                "StudentID=" + theStudent.getId() +
+                ", Course=" + theOffering.getCourse().getCourseName() + "-" + theOffering.getCourse().getCourseId() +
+                ", Section=" + theOffering.getSection() +
                 '}';
     }
 }
