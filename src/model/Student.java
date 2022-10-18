@@ -76,7 +76,7 @@ public class Student {
         System.out.println("No Registrations found for " + course.getCourseName() + "-" + course.getCourseId());
     }
 
-    public void printCourseList() {
+    public String printCourseList() {
         String str = "_".repeat(20) + "\n" + " ".repeat(4) + "Course List " + " ".repeat(4) + "\n" + "_".repeat(20)
                 + "\n";
 
@@ -86,7 +86,7 @@ public class Student {
 
         str = str + "_".repeat(20) + "\n";
 
-        System.out.println(str);
+        return str;
     }
 
     @Override
