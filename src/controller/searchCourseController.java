@@ -7,17 +7,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class searchCourseController {
+public class SearchCourseController extends AppController{
 
     private searchCourse searchCourse;
-    private CourseCat cat;
-    private Student student;
     
-    public searchCourseController(CourseCat cat, Student student)
+    public SearchCourseController()
     {
         this.searchCourse = new searchCourse();
-        this.cat = cat;
-        this.student = student;
 
         searchCourse.search.addActionListener(new searchListener());
         searchCourse.quit.addActionListener(new QuitListener());
@@ -46,7 +42,7 @@ public class searchCourseController {
         @Override
 		public void actionPerformed(ActionEvent e) {
             searchCourse.setVisible(false);
-            mainViewController main = new mainViewController(cat, student);
+            MainViewController main = new MainViewController();
         }
     }
 

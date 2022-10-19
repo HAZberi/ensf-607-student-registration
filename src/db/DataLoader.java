@@ -1,6 +1,10 @@
-package model;
+package db;
 
 import java.util.ArrayList;
+
+import model.Course;
+import model.Offering;
+import model.Student;
 
 public class DataLoader {
 

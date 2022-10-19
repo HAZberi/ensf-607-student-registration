@@ -7,19 +7,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class viewAllStudentController {
+public class ViewAllStudentController extends AppController{
 
     private viewAllCat viewAllCat;
-    private CourseCat cat;
-    private Student student;
     
-    public viewAllStudentController(CourseCat cat, Student student)
+    public ViewAllStudentController()
     {
         this.viewAllCat = new viewAllCat();
-        this.cat = cat;
-        this.student = student;
 
-        viewAllCat.setMessage(student.printCourseList());
+        viewAllCat.setMessage(studentList.get(0).printCourseList());
 
         viewAllCat.quit.addActionListener(new QuitListener());
         viewAllCat.mainMenu.addActionListener(new MainListener());
@@ -29,7 +25,7 @@ public class viewAllStudentController {
         @Override
 		public void actionPerformed(ActionEvent e) {
             viewAllCat.setVisible(false);
-            mainViewController main = new mainViewController(cat, student);
+            MainViewController main = new MainViewController();
         }
     }
 

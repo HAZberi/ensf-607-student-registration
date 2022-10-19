@@ -7,15 +7,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class studentInfoController {
+public class StudentInfoController {
     
     private studentInfo view;
-    private CourseCat cat;
 
-    public studentInfoController(studentInfo view, CourseCat cat)
+    public StudentInfoController()
     {
-        this.view = view;
-        this.cat = cat;
+        this.view = new studentInfo();
 
         view.quit.addActionListener(new QuitListener());
         view.newStudent.addActionListener(new newListener());
@@ -32,6 +30,9 @@ public class studentInfoController {
 		
 	}
 
+    /**
+     * Need Reimplementation
+     */
     class newListener implements ActionListener{
 
 		@Override
@@ -41,7 +42,7 @@ public class studentInfoController {
 
             //need to implement
             Student newStudent = new Student(studentName, studentId);
-            mainViewController main = new mainViewController(cat, newStudent);
+            MainViewController main = new MainViewController();
             view.setVisible(false);
 		}
 		
@@ -55,7 +56,7 @@ public class studentInfoController {
             int studentId = view.getStudentId();
 
             Student newStudent = new Student(studentName, studentId);
-            mainViewController main = new mainViewController(cat, newStudent);
+            MainViewController main = new MainViewController();
             view.setVisible(false);
 		}
 		

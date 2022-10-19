@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class mainView extends JFrame {
+public class MainView extends JFrame {
 
     public JButton login;
     public JButton quit;
@@ -13,17 +13,13 @@ public class mainView extends JFrame {
     public JButton removeCourse;
     public JButton viewAllCourses;
     public JButton viewCourses;
-
-
-
     public JLabel title;
 
-    public mainView()
-    {
-        super("Start");
+    public MainView() {
+        super("Course Registration System");
 
         JPanel mainPanel = new JPanel();
-        this.setSize(600,400);
+        this.setSize(600, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         addCourse = new JButton("Add Course");
@@ -36,13 +32,11 @@ public class mainView extends JFrame {
         quit = new JButton("Quit");
 
         title = new JLabel("Please Select From One Of The Options Below");
-       
-
 
         JPanel topPanel = new JPanel();
-		JPanel topCenterPanel = new JPanel();
+        JPanel topCenterPanel = new JPanel();
         JPanel bottomCenterPanel = new JPanel();
-		JPanel bottomPanel = new JPanel();
+        JPanel bottomPanel = new JPanel();
         mainPanel.add(topPanel);
         mainPanel.add(topCenterPanel);
         mainPanel.add(bottomCenterPanel);
@@ -65,8 +59,7 @@ public class mainView extends JFrame {
 
         System.out.println("Hello world!");
 
-        mainView myGui = new mainView();
-
+        MainView myGui = new MainView();
 
     }
 }

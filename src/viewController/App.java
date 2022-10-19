@@ -3,6 +3,8 @@ package viewController;
 import model.*;
 import java.util.ArrayList;
 
+import db.DataLoader;
+
 public class App {
     private CourseCat catalog;
     private ArrayList<Student> studentList;

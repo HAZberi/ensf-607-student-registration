@@ -1,105 +1,98 @@
 package controller;
 
-
 import model.*;
 import view.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-public class mainViewController {
-    
-    private mainView view;
-    private CourseCat cat;
-    private Student student;
+public class MainViewController extends AppController {
 
-    public mainViewController(CourseCat cat, Student student)
-    {
-        this.student = student;
-        this.cat = cat;
-        this.view = new mainView();
+	private MainView view;
 
-        view.quit.addActionListener(new QuitListener());
-        view.addCourse.addActionListener(new addListener());
-        view.searchCourse.addActionListener(new searchListener());
-        view.removeCourse.addActionListener(new removeListener());
-        view.viewAllCourses.addActionListener(new viewAllCatListener());
-        view.viewCourses.addActionListener(new viewAllStudentListener());
-        view.login.addActionListener(new loginListener());
+	public MainViewController() {
+		this.view = new MainView();
 
-    }
+		view.quit.addActionListener(new QuitListener());
+		view.addCourse.addActionListener(new addListener());
+		view.searchCourse.addActionListener(new searchListener());
+		view.removeCourse.addActionListener(new removeListener());
+		view.viewAllCourses.addActionListener(new viewAllCatListener());
+		view.viewCourses.addActionListener(new viewAllStudentListener());
+		view.login.addActionListener(new loginListener());
 
-    class QuitListener implements ActionListener{
+	}
+
+	class QuitListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			view.setVisible(false);
 		}
-		
+
 	}
 
-    class addListener implements ActionListener{
+	class addListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-            new addCourseController(cat, student);
+			new AddCourseController();
 			view.setVisible(false);
 		}
-		
+
 	}
 
-    class searchListener implements ActionListener{
+	class searchListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-            new searchCourseController(cat, student);
+			new SearchCourseController();
 			view.setVisible(false);
 		}
-		
+
 	}
 
-    class removeListener implements ActionListener{
+	class removeListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-            new removeCourseController(cat, student);
+			new RemoveCourseController();
 			view.setVisible(false);
 		}
-		
+
 	}
 
-    class viewAllCatListener implements ActionListener{
+	class viewAllCatListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-            new viewAllCatController(cat, student);
+			new ViewAllCatController();
 			view.setVisible(false);
 		}
-		
+
 	}
 
-    class viewAllStudentListener implements ActionListener{
+	class viewAllStudentListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-            new viewAllStudentController(cat, student);
+			new ViewAllStudentController();
 			view.setVisible(false);
 		}
-		
+
 	}
 
-    class loginListener implements ActionListener{
+	class loginListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			studentInfo theView = new studentInfo();
-            new studentInfoController(theView,cat);
+			new StudentInfoController();
 			view.setVisible(false);
 			theView.setVisible(true);
 		}
-		
+
 	}
-
-
 
 }

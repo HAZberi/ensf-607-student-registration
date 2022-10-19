@@ -1,6 +1,6 @@
 import controller.*;
+import db.DataLoader;
 import model.*;
-import view.*;
 import java.util.ArrayList;
 
 
@@ -8,14 +8,13 @@ public class MainForMVC {
 
     public static void main (String[] args)
     {
-        System.out.println("Hello world!");
+        //Load Existing Model Data from Data Loader(database)
+        ArrayList<Student> studentList= DataLoader.loadStudentsFromDatabase();
+        CourseCat cat = new CourseCat(DataLoader.loadCoursesFromDataBase());
 
-        studentInfo theView = new studentInfo();
+        AppController app = new AppController(cat, studentList);
 
-        CourseCat cat = new CourseCat(DataLoader.loadCoursesFromDataBase()); //model
-
-        studentInfoController theController = new studentInfoController(theView, cat);
-
+        app.init();
 
     }
     
