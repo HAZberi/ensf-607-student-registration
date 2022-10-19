@@ -15,7 +15,7 @@ public class ViewAllStudentController extends AppController{
     {
         this.viewAllCat = new viewAllCat();
 
-        viewAllCat.setMessage(studentList.get(0).printCourseList());
+        // viewAllCat.setMessage(studentList.get(0).printCourseList());
 
         viewAllCat.quit.addActionListener(new QuitListener());
         viewAllCat.mainMenu.addActionListener(new MainListener());

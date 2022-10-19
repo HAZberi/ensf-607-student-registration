@@ -4,8 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainView extends AppView {
-
-    public JButton quit;
     public JButton searchCourse;
     public JButton addCourse;
     public JButton removeCourse;
@@ -51,7 +49,7 @@ public class MainView extends AppView {
         c.gridy = 2;
         mainPanel.add(endEnrollment, c);
 
-        quit = new JButton("Quit");
+        //Quit Button
         c.gridx = 0;
         c.gridy = 3;
         c.gridwidth = 2;

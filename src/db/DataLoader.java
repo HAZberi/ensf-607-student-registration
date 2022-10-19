@@ -8,6 +8,8 @@ import model.Student;
 
 public class DataLoader {
 
+    public static ArrayList <Student> students;
+
     //Helper method
     public static ArrayList<Course> loadCoursesFromDataBase (){
         //Simulating a database!
@@ -61,7 +63,7 @@ public class DataLoader {
         Student s8 = new Student("Tony Kroos", 107);
         Student s9 = new Student("Raheem Sterling", 108);
 
-        ArrayList <Student> students = new ArrayList<>();
+        students = new ArrayList<>();
 
         students.add(s1);
         students.add(s2);

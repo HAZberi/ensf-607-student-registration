@@ -1,9 +1,7 @@
 package controller;
 
 import view.viewAllCat;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import model.Course;
 
 public class ViewAllCatController extends AppController{
 
@@ -13,7 +11,11 @@ public class ViewAllCatController extends AppController{
     {
         this.viewAllCat = new viewAllCat();
 
-        viewAllCat.setMessage(cat.toString());
+        for(Course c: cat.getCourseList()){
+            viewAllCat.catalogue.addElement(c.toString());
+        }
+
+        viewAllCat.populateView();
         viewAllCat.quit.addActionListener(e -> quit(this.viewAllCat));
         viewAllCat.mainMenu.addActionListener(e -> mainMenu(this.viewAllCat));
     }

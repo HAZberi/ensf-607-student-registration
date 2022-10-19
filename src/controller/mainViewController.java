@@ -9,6 +9,8 @@ public class MainViewController extends AppController {
 	public MainViewController() {
 		this.view = new MainView();
 
+		System.out.println(this.cat.getCourseList().toString());
+
 		view.quit.addActionListener(e -> quit(this.view));
 		view.addCourse.addActionListener(e -> addCourse());
 		view.searchCourse.addActionListener(e -> searchCourse());

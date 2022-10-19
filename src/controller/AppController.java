@@ -5,18 +5,15 @@ import view.AppView;
 
 import java.util.ArrayList;
 
+import db.DataLoader;
+
 public class AppController {
     protected CourseCat cat;
     protected ArrayList<Student> studentList;
 
     public AppController() {
-        this.studentList = null;
-        this.cat = null;
-    }
-
-    public AppController(CourseCat cat, ArrayList<Student> stdList) {
-        this.studentList = stdList;
-        this.cat = cat;
+        this.studentList = DataLoader.loadStudentsFromDatabase();
+        this.cat = new CourseCat(DataLoader.loadCoursesFromDataBase());
     }
 
     public void loadData(CourseCat cat, ArrayList<Student> stdList) {
@@ -25,7 +22,7 @@ public class AppController {
     }
 
     public void init() {
-        new MainViewController();
+       new MainViewController();
     }
 
     protected void quit(AppView view) {

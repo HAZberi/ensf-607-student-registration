@@ -1,48 +1,50 @@
 package view;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
 
 public class viewAllCat extends AppView {
 
-    public JButton mainMenu;
-    public JButton quit;
-
-    public JTextArea catalogue;
+    public DefaultListModel<Object> catalogue;
     public JLabel title;
+    public JList<Object> list;
+    private GridBagConstraints c;
 
     public viewAllCat()
     {
-
-        mainMenu = new JButton("Main Menu");
-        quit = new JButton("Quit");
+        mainPanel.setLayout(new GridBagLayout());
+        this.c = new GridBagConstraints();
         title = new JLabel("All Available Courses Are Shown Below");
-        catalogue = new JTextArea();
-        catalogue.setEditable(false);
-       
+        catalogue = new DefaultListModel<Object>();
+    }    
 
+    public void populateView(){
+        
+        c.fill = GridBagConstraints.BOTH;
+        c.weightx = 1.0;
+        c.weighty = 0.25;
+        
+        c.gridx = 0;
+        c.gridy = 0;
+        mainPanel.add(title, c);
+        
+        this.list = new JList<Object>(catalogue);
+        c.weighty = 0.75;
+        c.gridx = 0;
+        c.gridy = 1;
+        mainPanel.add(this.list, c);
 
-        JPanel topPanel = new JPanel();
-		JPanel topCenterPanel = new JPanel();
-        JPanel bottomCenterPanel = new JPanel();
-		JPanel bottomPanel = new JPanel();
-        mainPanel.add(topPanel);
-        mainPanel.add(topCenterPanel);
-        mainPanel.add(bottomCenterPanel);
-        mainPanel.add(bottomPanel);
+        c.weighty = 0.15;
+        c.weightx = 0;
+        c.gridx = 0;
+        c.gridy = 2;
+        mainPanel.add(this.mainMenu, c);
 
-        topPanel.add(title);
-        topCenterPanel.add(catalogue);
-        bottomPanel.add(mainMenu);
-        bottomPanel.add(quit);
+        c.gridx = 0;
+        c.gridy = 3;
+        mainPanel.add(this.quit, c);
 
         this.add(mainPanel);
         setVisible(true);
-    }
-
-    public void setMessage(String msg)
-    {
-        catalogue.setText(msg);
     }
 }
