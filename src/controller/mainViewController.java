@@ -15,13 +15,11 @@ public class MainViewController extends AppController {
 		view.removeCourse.addActionListener(e -> removeACourse());
 		view.viewAllCourses.addActionListener(e -> viewAllCourses());
 		view.viewCourses.addActionListener(e -> viewCourses());
-		// view.login.addActionListener(new loginListener());
-
 	}
 
 	private void quit() {
 		view.setVisible(false);
-		// view.dispose();
+		view.dispose();
 	}
 
 	private void addCourse() {
@@ -48,17 +46,5 @@ public class MainViewController extends AppController {
 		view.setVisible(false);
 		new ViewAllStudentController();
 	}
-
-	// class loginListener implements ActionListener {
-
-	// @Override
-	// public void actionPerformed(ActionEvent e) {
-	// studentInfo theView = new studentInfo();
-	// new StudentInfoController();
-	// view.setVisible(false);
-	// theView.setVisible(true);
-	// }
-
-	// }
 
 }
