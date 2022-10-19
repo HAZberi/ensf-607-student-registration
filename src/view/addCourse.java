@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class addCourse extends JFrame {
+public class AddCourse extends JFrame {
 
     public JButton add;
     public JButton mainMenu;
@@ -19,7 +19,7 @@ public class addCourse extends JFrame {
     public JLabel title;
     public JTextField message;
 
-    public addCourse()
+    public AddCourse()
     {
         super("Start");
 

@@ -1,6 +1,6 @@
 package controller;
 
-import view.addCourse;
+import view.AddCourse;
 
 import model.*;
 import java.awt.event.ActionEvent;
@@ -9,10 +9,10 @@ import java.util.ArrayList;
 
 public class AddCourseController extends AppController {
 
-    private addCourse addCourse;
+    private AddCourse addCourse;
 
     public AddCourseController() {
-        this.addCourse = new addCourse();
+        this.addCourse = new AddCourse();
 
         addCourse.add.addActionListener(new addListener());
         addCourse.quit.addActionListener(new QuitListener());

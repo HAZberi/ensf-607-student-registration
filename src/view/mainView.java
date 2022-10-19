@@ -27,8 +27,6 @@ public class MainView extends JFrame {
         removeCourse = new JButton("Remove Course");
         viewAllCourses = new JButton("View All Courses");
         viewCourses = new JButton("View Your Courses");
-
-        login = new JButton("Log In");
         quit = new JButton("Quit");
 
         title = new JLabel("Please Select From One Of The Options Below");
