@@ -14,26 +14,8 @@ public class ViewAllCatController extends AppController{
         this.viewAllCat = new viewAllCat();
 
         viewAllCat.setMessage(cat.toString());
-        viewAllCat.quit.addActionListener(new QuitListener());
-        viewAllCat.mainMenu.addActionListener(new MainListener());
+        viewAllCat.quit.addActionListener(e -> quit(this.viewAllCat));
+        viewAllCat.mainMenu.addActionListener(e -> mainMenu(this.viewAllCat));
     }
-
-    class MainListener implements ActionListener{
-        @Override
-		public void actionPerformed(ActionEvent e) {
-            viewAllCat.setVisible(false);
-            MainViewController main = new MainViewController();
-        }
-    }
-
-    class QuitListener implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			viewAllCat.setVisible(false);
-		}
-		
-	}
-
     
 }

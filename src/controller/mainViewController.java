@@ -9,17 +9,12 @@ public class MainViewController extends AppController {
 	public MainViewController() {
 		this.view = new MainView();
 
-		view.quit.addActionListener(e -> quit());
+		view.quit.addActionListener(e -> quit(this.view));
 		view.addCourse.addActionListener(e -> addCourse());
 		view.searchCourse.addActionListener(e -> searchCourse());
 		view.removeCourse.addActionListener(e -> removeACourse());
 		view.viewAllCourses.addActionListener(e -> viewAllCourses());
 		view.viewCourses.addActionListener(e -> viewCourses());
-	}
-
-	private void quit() {
-		view.setVisible(false);
-		view.dispose();
 	}
 
 	private void addCourse() {

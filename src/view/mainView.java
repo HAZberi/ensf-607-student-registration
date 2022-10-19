@@ -3,9 +3,8 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
-public class MainView extends JFrame {
+public class MainView extends AppView {
 
-    public JButton login;
     public JButton quit;
     public JButton searchCourse;
     public JButton addCourse;
@@ -13,16 +12,8 @@ public class MainView extends JFrame {
     public JButton viewAllCourses;
     public JButton viewCourses;
     public JButton endEnrollment;
-    public JLabel title;
 
     public MainView() {
-        super("Course Registration System");
-
-        this.setSize(600, 400);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        JPanel mainPanel = new JPanel();
-        mainPanel.setPreferredSize(new Dimension(600,400));
         mainPanel.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
 

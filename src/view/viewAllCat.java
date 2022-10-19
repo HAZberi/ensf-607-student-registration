@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class viewAllCat extends JFrame {
+public class viewAllCat extends AppView {
 
     public JButton mainMenu;
     public JButton quit;
@@ -14,11 +14,6 @@ public class viewAllCat extends JFrame {
 
     public viewAllCat()
     {
-        super("Start");
-
-        JPanel mainPanel = new JPanel();
-        this.setSize(600,400);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         mainMenu = new JButton("Main Menu");
         quit = new JButton("Quit");
