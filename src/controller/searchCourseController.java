@@ -1,58 +1,32 @@
 package controller;
 
-import view.searchCourse;
+import view.SearchCourseView;
 
 import model.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class SearchCourseController extends AppController{
+public class SearchCourseController extends AppController {
 
-    private searchCourse searchCourse;
-    
-    public SearchCourseController()
-    {
-        this.searchCourse = new searchCourse();
+    private SearchCourseView searchCourse;
 
-        searchCourse.search.addActionListener(new searchListener());
-        searchCourse.quit.addActionListener(new QuitListener());
-        searchCourse.mainMenu.addActionListener(new MainListener());
-    }
-    
-    class searchListener implements ActionListener
-    {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String courseName = searchCourse.getCourseName();
-            int courseId = searchCourse.getCourseId();
+    public SearchCourseController() {
+        this.searchCourse = new SearchCourseView();
 
-            Course courselist = cat.searchCat(courseName, courseId);
-
-            if (courselist == null)
-            {
-                searchCourse.setOutput("That course does not exist!");
-            }
-
-            searchCourse.setOutput(courselist.toString());
-         }
+        searchCourse.search.addActionListener(e -> search());
+        searchCourse.quit.addActionListener(e -> quit(this.searchCourse));
+        searchCourse.mainMenu.addActionListener(e -> mainMenu(this.searchCourse));
     }
 
-    class MainListener implements ActionListener{
-        @Override
-		public void actionPerformed(ActionEvent e) {
-            searchCourse.setVisible(false);
-            MainViewController main = new MainViewController();
-        }
+    public void search() {
+
+        String courseName = searchCourse.getCourseName();
+        int courseId = searchCourse.getCourseId();
+
+        Course courselist = cat.searchCat(courseName, courseId);
+
+        if (courselist == null)
+            searchCourse.setOutput(courseName + "-" + courseId + " does not exist!");
+
+        searchCourse.setOutput(courselist.toString());
     }
 
-    class QuitListener implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			searchCourse.setVisible(false);
-		}
-		
-	}
- 
 }

@@ -1,15 +1,15 @@
 package controller;
 
-import view.viewAllCat;
+import view.CatalogueView;
 import model.Course;
 
 public class ViewAllCatController extends AppController{
 
-    private viewAllCat viewAllCat;
+    private CatalogueView viewAllCat;
     
     public ViewAllCatController()
     {
-        this.viewAllCat = new viewAllCat();
+        this.viewAllCat = new CatalogueView();
 
         for(Course c: cat.getCourseList()){
             viewAllCat.catalogue.addElement(c.toString());

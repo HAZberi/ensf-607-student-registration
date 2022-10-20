@@ -3,31 +3,30 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
-public class viewAllCat extends AppView {
+public class CatalogueView extends AppView {
 
     public DefaultListModel<Object> catalogue;
-    public JLabel title;
     public JList<Object> list;
     private GridBagConstraints c;
 
-    public viewAllCat()
-    {
+    public CatalogueView() {
         mainPanel.setLayout(new GridBagLayout());
         this.c = new GridBagConstraints();
-        title = new JLabel("All Available Courses Are Shown Below");
         catalogue = new DefaultListModel<Object>();
-    }    
+        title.setText("All Available Courses Are Shown Below");
+        titlePanel.add(title, BorderLayout.CENTER);
+    }
 
-    public void populateView(){
-        
+    public void populateView() {
+
         c.fill = GridBagConstraints.BOTH;
         c.weightx = 1.0;
         c.weighty = 0.25;
-        
+
         c.gridx = 0;
         c.gridy = 0;
-        mainPanel.add(title, c);
-        
+        mainPanel.add(titlePanel, c);
+
         this.list = new JList<Object>(catalogue);
         c.weighty = 0.75;
         c.gridx = 0;
@@ -38,11 +37,7 @@ public class viewAllCat extends AppView {
         c.weightx = 0;
         c.gridx = 0;
         c.gridy = 2;
-        mainPanel.add(this.mainMenu, c);
-
-        c.gridx = 0;
-        c.gridy = 3;
-        mainPanel.add(this.quit, c);
+        mainPanel.add(getNavPanel(), c);
 
         this.add(mainPanel);
         setVisible(true);

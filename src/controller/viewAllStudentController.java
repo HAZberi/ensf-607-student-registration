@@ -1,6 +1,6 @@
 package controller;
 
-import view.viewAllCat;
+import view.CatalogueView;
 
 import model.*;
 import java.awt.*;
@@ -9,11 +9,11 @@ import java.awt.event.ActionListener;
 
 public class ViewAllStudentController extends AppController{
 
-    private viewAllCat viewAllCat;
+    private CatalogueView viewAllCat;
     
     public ViewAllStudentController()
     {
-        this.viewAllCat = new viewAllCat();
+        this.viewAllCat = new CatalogueView();
 
         // viewAllCat.setMessage(studentList.get(0).printCourseList());
 

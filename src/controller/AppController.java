@@ -28,6 +28,7 @@ public class AppController {
     protected void quit(AppView view) {
         view.setVisible(false);
         view.dispose();
+        System.exit(0);
     }
 
     protected void mainMenu(AppView view){

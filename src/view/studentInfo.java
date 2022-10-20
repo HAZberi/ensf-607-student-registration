@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class studentInfo extends JFrame {
+public class studentInfo extends AppView {
 
     public JButton newStudent;
     public JButton existingStudent;
@@ -21,12 +21,6 @@ public class studentInfo extends JFrame {
 
     public studentInfo()
     {
-        super("Start");
-
-        JPanel mainPanel = new JPanel();
-        this.setSize(600,400);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         newStudent = new JButton("Existing");
         existingStudent = new JButton("New");
         quit = new JButton("Quit");
