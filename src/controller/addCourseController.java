@@ -1,46 +1,50 @@
 package controller;
 
-import view.AddCourse;
+import view.AddCourseView;
 
 import model.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
+import db.DataLoader;
 
 public class AddCourseController extends AppController {
 
-    private AddCourse addCourse;
+    private AddCourseView view;
 
     public AddCourseController() {
-        this.addCourse = new AddCourse();
+        this.view = new AddCourseView();
 
-        addCourse.add.addActionListener(new addListener());
-        addCourse.quit.addActionListener(new QuitListener());
-        addCourse.mainMenu.addActionListener(new MainListener());
+        view.addCourse.addActionListener(e -> addCourseToCurrStudent());
+        view.quit.addActionListener(e -> quit(this.view));
+        view.mainMenu.addActionListener(e -> mainMenu(this.view));
     }
 
-    class addListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            addCourse.setMessage("Course Succesfully Added!");
-        }
-    }
+    private void addCourseToCurrStudent(){
+        String courseName = view.getCourseName();
+        int courseId = view.getCourseId();
+        int section = view.getSection();
 
-    class MainListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            MainViewController main = new MainViewController();
-            addCourse.setVisible(false);
-        }
-    }
-
-    class QuitListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            addCourse.setVisible(false);
+        Course c = getCourse(courseId);
+        if(c == null){
+            view.setMessage(courseName + "-" + courseId + " does not exist.");
+            return;
         }
 
+        Offering of = getOffering(section, c);
+        if(of == null){
+            view.setMessage("Section " + section + " does not exist.");
+            return;
+        }
+
+        Student st = DataLoader.currStudent;
+
+        if(st == null){
+            new StudentInfoController();
+            return;
+        }
+
+        st.registerForCourse(cat, courseName, courseId, section);
+        view.setMessage(courseName + "-" + courseId + " successfully registered.");
+        updateStudent(st);
     }
 
 }

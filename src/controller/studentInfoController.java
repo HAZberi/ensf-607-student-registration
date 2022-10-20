@@ -40,7 +40,6 @@ public class StudentInfoController extends AppController{
         }
 
         view.setMessage("Cannot find Student with id: " + studentId);
-
     }
 
 }

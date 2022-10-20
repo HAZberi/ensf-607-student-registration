@@ -38,6 +38,7 @@ public class AppController {
 
     protected void addStudent(Student student){
         DataLoader.students.add(student);
+        this.studentList.add(student);
     }
 
     protected Student getStudent(int id){
@@ -48,12 +49,30 @@ public class AppController {
         return null;
     }
 
+    protected void updateStudent(Student student){
+        for (Student st : this.studentList) {
+            if (st.getId() == student.getId())
+                st = student;
+        }
+        for (Student st : DataLoader.students) {
+            if (st.getId() == student.getId())
+                st = student;
+        }
+    }
+
     protected Course getCourse(int id){
         for (Course c: this.cat.getCourseList()) {
             if (c.getCourseId() == id)
                 return c;
         }
+        return null;
+    }
 
+    protected Offering getOffering(int section, Course c){
+        for (Offering of: c.getOfferingList()) {
+            if (of.getSection() == section)
+                return of;
+        }
         return null;
     }
 
