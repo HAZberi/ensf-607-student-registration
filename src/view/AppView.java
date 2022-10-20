@@ -77,4 +77,15 @@ public class AppView extends JFrame {
         return navPanel;
     }
 
+    public JPanel getMessagePanel(JTextField message){
+        JPanel messagePanel = new JPanel();
+        messagePanel.setLayout(new BorderLayout()); // give your JPanel a BorderLayout
+        JLabel heading = new JLabel("MESSAGE");
+        heading.setHorizontalAlignment(JLabel.CENTER);
+        messagePanel.add(heading, BorderLayout.PAGE_START);
+        messagePanel.add(message, BorderLayout.CENTER);
+
+        return messagePanel;
+    }
+
 }

@@ -9,11 +9,11 @@ import java.awt.event.ActionListener;
 
 public class StudentInfoController extends AppController{
     
-    private studentInfo view;
+    private StudentInfo view;
 
     public StudentInfoController()
     {
-        this.view = new studentInfo();
+        this.view = new StudentInfo();
 
         view.quit.addActionListener(new QuitListener());
         view.newStudent.addActionListener(new newListener());
@@ -37,7 +37,7 @@ public class StudentInfoController extends AppController{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			String studentName = view.getCourseName();
+			String studentName = view.getStudentName();
             int studentId = view.getStudentId();
 
             //need to implement
@@ -52,7 +52,7 @@ public class StudentInfoController extends AppController{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			String studentName = view.getCourseName();
+			String studentName = view.getStudentName();
             int studentId = view.getStudentId();
 
             Student newStudent = new Student(studentName, studentId);
