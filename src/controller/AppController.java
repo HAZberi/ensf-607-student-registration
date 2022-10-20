@@ -22,7 +22,7 @@ public class AppController {
     }
 
     public void init() {
-       new MainViewController();
+       new StudentInfoController();
     }
 
     protected void quit(AppView view) {
