@@ -9,6 +9,7 @@ import model.Student;
 public class DataLoader {
 
     public static ArrayList <Student> students;
+    public static Student currStudent;
 
     //Helper method
     public static ArrayList<Course> loadCoursesFromDataBase (){

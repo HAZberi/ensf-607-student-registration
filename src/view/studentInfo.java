@@ -140,14 +140,13 @@ public class StudentInfo extends AppView {
         return Integer.parseInt(id.getText());
     }
 
+    public int getExistingStudentId() {
+        return Integer.parseInt(existingId.getText());
+    }
+
     public void setMessage(String msg) {
         message.setText(msg);
         panelViewLayout.show(panelViews, "Message");
-    }
-
-    public static void main(String[] args) {
-
-        StudentInfo info = new StudentInfo();
     }
 
 }

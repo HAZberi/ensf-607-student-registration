@@ -35,4 +35,33 @@ public class AppController {
         view.setVisible(false);
         new MainViewController();
     }
+
+    protected void addStudent(Student student){
+        DataLoader.students.add(student);
+    }
+
+    protected Student getStudent(int id){
+        for (Student st : this.studentList) {
+            if (st.getId() == id)
+                return st;
+        }
+        return null;
+    }
+
+    protected Course getCourse(int id){
+        for (Course c: this.cat.getCourseList()) {
+            if (c.getCourseId() == id)
+                return c;
+        }
+
+        return null;
+    }
+
+    protected void setCurrentStudent(Student student){
+        DataLoader.currStudent = student;
+    }
+
+    protected Student getCurrentStudent(){
+        return DataLoader.currStudent;
+    }
 }

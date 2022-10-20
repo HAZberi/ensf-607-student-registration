@@ -3,9 +3,6 @@ package controller;
 
 import model.*;
 import view.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class StudentInfoController extends AppController{
     
@@ -15,52 +12,35 @@ public class StudentInfoController extends AppController{
     {
         this.view = new StudentInfo();
 
-        view.quit.addActionListener(new QuitListener());
-        view.newStudent.addActionListener(new newListener());
-        view.existingStudent.addActionListener(new existingListener());
+        view.quit.addActionListener(e -> quit(this.view));
+        view.mainMenu.addActionListener(e -> mainMenu(this.view));
+        view.newStudentSubmit.addActionListener(e -> newStudentCreate());
+        view.existingStudentSubmit.addActionListener(e -> setExistingStudent());
 
     }
 
-    class QuitListener implements ActionListener{
+    public void newStudentCreate(){
+        String studentName = view.getStudentName();
+        int studentId = view.getStudentId();
+        Student newStudent = new Student(studentName, studentId);
+        addStudent(newStudent);
+        setCurrentStudent(newStudent);
+        view.setVisible(false);
+        new MainViewController();
+    }
 
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			view.setVisible(false);
-		}
-		
-	}
-
-    /**
-     * Need Reimplementation
-     */
-    class newListener implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			String studentName = view.getStudentName();
-            int studentId = view.getStudentId();
-
-            //need to implement
-            Student newStudent = new Student(studentName, studentId);
-            MainViewController main = new MainViewController();
+    public void setExistingStudent(){
+        int studentId = view.getExistingStudentId();
+        Student existingStudent = getStudent(studentId);
+        if(existingStudent != null){
+            setCurrentStudent(existingStudent);
             view.setVisible(false);
-		}
-		
-	}
+            new MainViewController();
+            return;
+        }
 
-    class existingListener implements ActionListener{
+        view.setMessage("Cannot find Student with id: " + studentId);
 
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			String studentName = view.getStudentName();
-            int studentId = view.getStudentId();
-
-            Student newStudent = new Student(studentName, studentId);
-            MainViewController main = new MainViewController();
-            view.setVisible(false);
-		}
-		
-	}
-
+    }
 
 }

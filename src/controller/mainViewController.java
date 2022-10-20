@@ -17,6 +17,7 @@ public class MainViewController extends AppController {
 		view.removeCourse.addActionListener(e -> removeACourse());
 		view.viewAllCourses.addActionListener(e -> viewAllCourses());
 		view.viewCourses.addActionListener(e -> viewCourses());
+		view.login.addActionListener(e -> login());
 	}
 
 	private void addCourse() {
@@ -42,6 +43,11 @@ public class MainViewController extends AppController {
 	private void viewCourses() {
 		view.setVisible(false);
 		new ViewAllStudentController();
+	}
+
+	private void login(){
+		view.setVisible(false);
+		new StudentInfoController();
 	}
 
 }
