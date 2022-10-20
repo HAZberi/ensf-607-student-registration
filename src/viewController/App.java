@@ -14,7 +14,7 @@ public class App {
     public App() {
         this.reader = new KeyboardReader(); // initialize keyboard reader input
         this.catalog = new CourseCat(DataLoader.loadCoursesFromDataBase());
-        this.studentList = DataLoader.loadStudentsFromDatabase();
+        this.studentList = DataLoader.students;
     }
 
     public void printCatalog() {

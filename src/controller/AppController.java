@@ -12,7 +12,7 @@ public class AppController {
     protected ArrayList<Student> studentList;
 
     public AppController() {
-        this.studentList = DataLoader.loadStudentsFromDatabase();
+        this.studentList = DataLoader.students;
         this.cat = new CourseCat(DataLoader.loadCoursesFromDataBase());
     }
 
@@ -51,12 +51,15 @@ public class AppController {
 
     protected void updateStudent(Student student){
         for (Student st : this.studentList) {
-            if (st.getId() == student.getId())
-                st = student;
+            if (st.getId() == student.getId()){
+                this.studentList.set(DataLoader.students.indexOf(student), student);
+            }
         }
+
         for (Student st : DataLoader.students) {
-            if (st.getId() == student.getId())
-                st = student;
+            if (st.getId() == student.getId()){
+                DataLoader.students.set(DataLoader.students.indexOf(student), student);
+            }
         }
     }
 

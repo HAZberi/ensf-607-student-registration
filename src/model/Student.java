@@ -91,6 +91,33 @@ public class Student {
         return str;
     }
 
+    /**
+     * 
+     * equals check for equality with other Course object
+     * 
+     * @param
+     * object        of Course class
+     * 
+     * @return
+     *         true or false of type boolean
+     */
+    @Override
+    public boolean equals(Object student) {
+
+        if (student == this) {
+            return true;
+        }
+
+        if (!(student instanceof Student)) {
+            return false;
+        }
+
+        // type casting
+        Student compareStudent = (Student) student;
+
+        return this.id == compareStudent.id && this.name == compareStudent.name;
+    }
+
     @Override
     public String toString() {
         return "Student{" +

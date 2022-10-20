@@ -11,6 +11,10 @@ public class DataLoader {
     public static ArrayList <Student> students;
     public static Student currStudent;
 
+    public DataLoader(){
+        students = loadStudentsFromDatabase();
+    }
+
     //Helper method
     public static ArrayList<Course> loadCoursesFromDataBase (){
         //Simulating a database!
@@ -52,7 +56,7 @@ public class DataLoader {
         return tempCourseList;
     }
 
-    public static ArrayList<Student> loadStudentsFromDatabase() {
+    private ArrayList<Student> loadStudentsFromDatabase() {
 
         Student s1 = new Student("John Doe",100);
         Student s2 = new Student("James Reese", 101);
