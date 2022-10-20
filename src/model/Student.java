@@ -63,17 +63,19 @@ public class Student {
         reg.register(this, theOffering);
     }
 
-    public void removeCourse(Course course) {
-        for(Registration myReg: this.courseList){
-            if(myReg.getOffering().getCourse().equals(course)){
+    public String removeCourse(Course course) {
+        for (Registration myReg : this.courseList) {
+            if (myReg.getOffering().getCourse().equals(course)) {
                 myReg.getOffering().removeStudent(myReg);
                 this.courseList.remove(myReg);
                 System.out.println("Course Successfully Deleted.");
-                return;
+
+                return course.getCourseName() + "-" + course.getCourseId() + " successfully Dropped.";
             }
         }
 
         System.out.println("No Registrations found for " + course.getCourseName() + "-" + course.getCourseId());
+        return "No Registrations found for " + course.getCourseName() + "-" + course.getCourseId();
     }
 
     public String printCourseList() {
@@ -85,7 +87,7 @@ public class Student {
         }
 
         str = str + "_".repeat(20) + "\n";
-
+        System.out.println(str);
         return str;
     }
 

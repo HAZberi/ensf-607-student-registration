@@ -1,57 +1,33 @@
 package controller;
 
-import view.removeCourse;
+import view.RemoveCourseView;
+
+import db.DataLoader;
 
 import model.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class RemoveCourseController extends AppController {
 
-    private removeCourse removeCourse;
+    private RemoveCourseView view;
 
     public RemoveCourseController() {
-        this.removeCourse = new removeCourse();
+        this.view = new RemoveCourseView();
 
-        removeCourse.drop.addActionListener(new dropListener());
-        removeCourse.quit.addActionListener(new QuitListener());
-        removeCourse.mainMenu.addActionListener(new MainListener());
+        view.drop.addActionListener(e -> dropCourse());
+        view.quit.addActionListener(e -> quit(this.view));
+        view.mainMenu.addActionListener(e -> mainMenu(this.view));
     }
 
-    /**
-     * Re-Implement this - TEMPORARY FIX
-     */
-    class dropListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String courseName = removeCourse.getCourseName();
-            int courseId = removeCourse.getCourseId();
-
-            Course myCourse = cat.searchCat(courseName, courseId);
-
-            if (myCourse == null) {
-                removeCourse.setMessage("You are not currently registered for that course!");
-            }
-
-            studentList.get(0).removeCourse(myCourse);
-            removeCourse.setMessage("You have succesfully dropped that course!");
+    private void dropCourse(){
+        int courseId = view.getCourseId();
+        Course course = getCourse(courseId);
+        Student st = DataLoader.currStudent;
+        if(st == null){
+            new StudentInfoController();
+            this.view.setVisible(false);
+            return;
         }
+        view.setMessage(st.removeCourse(course));
+        updateStudent(st);
     }
-
-    class MainListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            removeCourse.setVisible(false);
-            MainViewController main = new MainViewController();
-        }
-    }
-
-    class QuitListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            removeCourse.setVisible(false);
-        }
-
-    }
-
 }
