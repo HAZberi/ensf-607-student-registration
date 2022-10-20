@@ -53,19 +53,21 @@ public class Course {
     }
 
     public String validateOffering() {
+
+        String str = "";
         for (Offering offering : offeringList) {
             try {
                 offering.validate();
                 System.out.println(courseName + "-" + courseId + "-" + offering.getSection() + ": "
                         + "Course Offering Intiation Successful");
-                return courseName + "-" + courseId + "-" + offering.getSection() + ": "
-                        + "Course Offering Intiation Successful";
+                str = str + courseName + "-" + courseId + "-" + offering.getSection() + ": "
+                        + "Course Offering Intiation Successful" + "\n";
             } catch (MinStudentsException e) {
                 System.out.println(courseName + "-" + courseId + "-" + offering.getSection() + ": " + e.getMessage());
-                return courseName + "-" + courseId + "-" + offering.getSection() + ": " + e.getMessage();
+                str = str + courseName + "-" + courseId + "-" + offering.getSection() + ": " + e.getMessage() + "\n";
             }
         }
-        return "";
+        return str;
     }
 
     /**
