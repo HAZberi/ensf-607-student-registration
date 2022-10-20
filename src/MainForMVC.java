@@ -1,7 +1,4 @@
 import controller.*;
-import db.DataLoader;
-import model.*;
-import java.util.ArrayList;
 
 
 public class MainForMVC {

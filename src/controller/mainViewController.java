@@ -42,7 +42,7 @@ public class MainViewController extends AppController {
 
 	private void viewCourses() {
 		view.setVisible(false);
-		new ViewAllStudentController();
+		new AllStudentCoursesController();
 	}
 
 	private void login(){

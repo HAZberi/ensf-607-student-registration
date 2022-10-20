@@ -39,6 +39,7 @@ public class AddCourseController extends AppController {
 
         if(st == null){
             new StudentInfoController();
+            this.view.setVisible(false);
             return;
         }
 
