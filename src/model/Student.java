@@ -51,16 +51,16 @@ public class Student {
         this.id = id;
     }
 
-    public void registerForCourse(CourseCat cat, String courseName, int courseId, int secNumber) {
+    public String registerForCourse(CourseCat cat, String courseName, int courseId, int secNumber) {
 
         Course myCourse = cat.searchCat(courseName, courseId);
 
         if (myCourse == null)
-            return;
+            return "";
         // if the course exists, then we can look at the section
         Offering theOffering = myCourse.getOffering(secNumber);
         Registration reg = new Registration();
-        reg.register(this, theOffering);
+        return reg.register(this, theOffering);
     }
 
     public String removeCourse(Course course) {

@@ -43,9 +43,13 @@ public class AddCourseController extends AppController {
             return;
         }
 
-        st.registerForCourse(cat, courseName, courseId, section);
-        view.setMessage(courseName + "-" + courseId + " successfully registered.");
-        updateStudent(st);
+        String status = st.registerForCourse(cat, courseName, courseId, section);
+        if(status == "Success"){
+            view.setMessage(courseName + "-" + courseId + " successfully registered.");
+            updateStudent(st);
+            return;
+        }
+        view.setMessage(status);
     }
 
 }

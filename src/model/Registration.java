@@ -7,14 +7,16 @@ public class Registration {
 
     private char theGrade;
 
-    public void register(Student theStudent, Offering theOffering) {
+    public String register(Student theStudent, Offering theOffering) {
         try {
             this.theStudent = theStudent;
             this.theOffering = theOffering;
             this.theStudent.addCourse(this);
             this.theOffering.addStudent(this);
+            return "Success";
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            return e.getMessage();
         }
     }
 
