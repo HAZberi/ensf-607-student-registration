@@ -3,6 +3,7 @@ package db;
 import java.util.ArrayList;
 
 import model.Course;
+import model.CourseCat;
 import model.Offering;
 import model.Student;
 
@@ -57,11 +58,16 @@ public class DataLoader {
     }
 
     private ArrayList<Student> loadStudentsFromDatabase() {
-
+        CourseCat cat = new CourseCat(DataLoader.loadCoursesFromDataBase());
         Student s1 = new Student("John Doe",100);
+        s1.registerForCourse(cat, "ENSF", 609, 1);
+        s1.registerForCourse(cat, "ENSF", 610, 1);
         Student s2 = new Student("James Reese", 101);
+        s2.registerForCourse(cat, "ENSF", 610, 1);
         Student s3 = new Student("Alexandar Arnold", 102);
+        s3.registerForCourse(cat, "ENSF", 610, 1);
         Student s4 = new Student("Zlatan Ibrahimavic", 103);
+        s4.registerForCourse(cat, "ENSF", 610, 1);
         Student s5 = new Student("Ben Yedder", 104);
         Student s6 = new Student("Mo Salah", 105);
         Student s7 = new Student("Paolo Dybala", 106);
